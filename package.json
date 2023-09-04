@@ -1,0 +1,26 @@
+{
+  "name": "tree-sitter-socialgaming",
+  "version": "0.0.1",
+  "description": "Language for specifing simple social games.",
+  "main": "bindings/node",
+  "scripts": {
+    "build": "tree-sitter generate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nick Sumner",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.socialgaming",
+      "file-types": [
+        "game"
+      ]
+    }
+  ]
+}
