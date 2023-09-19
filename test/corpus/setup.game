@@ -55,6 +55,7 @@ configuration {
       kind: integer
       prompt: "An integer"
       range: (1, 100)
+      default: 30
     }
   }
 }
@@ -78,6 +79,8 @@ rules {}
       (quoted_string)
       (number_range
         (number)
+        (number))
+      (expression
         (number))))
   (constants
     (value_map))

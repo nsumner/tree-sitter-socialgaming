@@ -1145,6 +1145,16 @@
           }
         ]
       },
+      "default": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
       "kind": {
         "multiple": false,
         "required": true,
@@ -1476,6 +1486,10 @@
   },
   {
     "type": "deal",
+    "named": false
+  },
+  {
+    "type": "default:",
     "named": false
   },
   {

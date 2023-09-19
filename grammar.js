@@ -39,8 +39,9 @@ module.exports = grammar({
         'kind:',   field('kind', choice('boolean', 'integer', 'string', 'enum', 'question-answer', 'multiple-choice', 'json')),
         'prompt:', field('prompt', $.quoted_string),
 
-        optional(seq('range:',  field('range', $.number_range))),
+        optional(seq('range:',   field('range', $.number_range))),
         optional(seq('choices:', field('choices', wrappedDelimitedList('{', $.enum_description, ',', '}')))),
+        optional(seq('default:', field('default', $.expression))),
       '}'
     ),
 
