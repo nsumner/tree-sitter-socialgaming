@@ -945,12 +945,12 @@
           }
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "FIELD",
-              "name": "mode",
-              "content": {
+          "type": "FIELD",
+          "name": "mode",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
                 "type": "CHOICE",
                 "members": [
                   {
@@ -962,12 +962,12 @@
                     "value": "exactly"
                   }
                 ]
+              },
+              {
+                "type": "BLANK"
               }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+            ]
+          }
         },
         {
           "type": "CHOICE",
@@ -1968,8 +1968,62 @@
       ]
     },
     "quoted_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "FIELD",
+          "name": "contents",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "string_interpolation"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "string_text"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "string_text": {
       "type": "PATTERN",
-      "value": "\"[^\"]*\""
+      "value": "([^\"{}]|\\{\\{|\\}\\})+"
+    },
+    "string_interpolation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "FIELD",
+          "name": "expression",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
     },
     "number_range": {
       "type": "SEQ",
@@ -2241,9 +2295,6 @@
   "conflicts": [],
   "precedences": [],
   "externals": [],
-  "inline": [
-    "ReferenceError"
-  ],
+  "inline": [],
   "supertypes": []
 }
-
