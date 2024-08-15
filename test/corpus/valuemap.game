@@ -72,7 +72,8 @@ rules {}
       (map_entry
         (identifier)
         (expression
-          (quoted_string)))))
+          (quoted_string
+            (string_text))))))
   (variables
     (value_map))
   (per_player
@@ -334,7 +335,7 @@ rules {}
               (number))
             (expression
               (expression
-                (expression 
+                (expression
                   (expression
                     (number))
                   (expression
@@ -669,16 +670,74 @@ rules {}
         (identifier)
         (expression
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (expression
-            (quoted_string))))
+            (quoted_string
+              (string_text)))))
       (map_entry
         (identifier)
         (expression
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (expression
             (number))))))
+  (variables
+    (value_map))
+  (per_player
+    (value_map))
+  (per_audience
+    (value_map))
+  (rules
+    (body)))
+
+=====
+Interpolated Strings
+=====
+
+configuration {
+  name: ""
+  player range: (0, 0)
+  audience: false
+  setup: {}
+}
+constants {
+  a: "abc{5+4}{{text}}{def.ghi}"
+}
+variables {}
+per-player {}
+per-audience {}
+rules {}
+
+-----
+
+(game
+  (configuration
+    (quoted_string)
+    (number_range
+      (number)
+      (number))
+    (boolean))
+  (constants
+    (value_map
+      (map_entry
+        (identifier)
+        (expression
+          (quoted_string
+            (string_text)
+            (string_interpolation
+              (expression
+                (expression
+                  (number))
+                (expression
+                  (number))))
+            (string_text)
+            (string_interpolation
+              (expression
+                (expression
+                  (identifier))
+                (identifier))))))))
   (variables
     (value_map))
   (per_player

@@ -30,7 +30,8 @@ rules {}
     (boolean)
     (setup_rule
       (identifier)
-      (quoted_string)))
+      (quoted_string
+        (string_text))))
   (constants
     (value_map))
   (variables
@@ -76,7 +77,8 @@ rules {}
     (boolean)
     (setup_rule
       (identifier)
-      (quoted_string)
+      (quoted_string
+        (string_text))
       (number_range
         (number)
         (number))
@@ -125,7 +127,8 @@ rules {}
     (boolean)
     (setup_rule
       (identifier)
-      (quoted_string)))
+      (quoted_string
+        (string_text))))
   (constants
     (value_map))
   (variables
@@ -173,13 +176,16 @@ rules {}
     (boolean)
     (setup_rule
       (identifier)
-      (quoted_string)
+      (quoted_string
+        (string_text))
       (enum_description
         (identifier)
-        (quoted_string))
+        (quoted_string
+          (string_text)))
       (enum_description
         (identifier)
-        (quoted_string))))
+        (quoted_string
+          (string_text)))))
   (constants
     (value_map))
   (variables
@@ -231,13 +237,16 @@ rules {}
     (boolean)
     (setup_rule
       (identifier)
-      (quoted_string))
+      (quoted_string
+        (string_text)))
     (setup_rule
       (identifier)
-      (quoted_string))
+      (quoted_string
+        (string_text)))
     (setup_rule
       (identifier)
-      (quoted_string)))
+      (quoted_string
+        (string_text))))
   (constants
     (value_map))
   (variables

@@ -486,16 +486,20 @@ rules {
             (identifier)
             (identifier))
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (expression
             (list_literal
               (expression_list
                 (expression
-                  (quoted_string))
+                  (quoted_string
+                    (string_text)))
                 (expression
-                  (quoted_string))
+                  (quoted_string
+                    (string_text)))
                 (expression
-                  (quoted_string)))))
+                  (quoted_string
+                    (string_text))))))
           (qualified_identifier
             (identifier))
           (expression
@@ -506,12 +510,14 @@ rules {
             (identifier)
             (identifier))
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (expression
             (list_literal
               (expression_list
                 (expression
-                  (quoted_string)))))
+                  (quoted_string
+                    (string_text))))))
           (qualified_identifier
             (identifier))))
       (rule
@@ -520,7 +526,8 @@ rules {
             (identifier)
             (identifier))
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (qualified_identifier
             (identifier))
           (expression
@@ -531,7 +538,8 @@ rules {
             (identifier)
             (identifier))
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (qualified_identifier
             (identifier))))
       (rule
@@ -540,7 +548,8 @@ rules {
             (identifier)
             (identifier))
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (number_range
             (number)
             (number))
@@ -554,7 +563,8 @@ rules {
             (identifier)
             (identifier))
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (number_range
             (number)
             (number))
@@ -568,14 +578,17 @@ rules {
                 (identifier))
               (identifier)))
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (expression
             (list_literal
               (expression_list
                 (expression
-                  (quoted_string))
+                  (quoted_string
+                    (string_text)))
                 (expression
-                  (quoted_string)))))
+                  (quoted_string
+                    (string_text))))))
           (qualified_identifier
             (identifier))
           (expression
@@ -584,14 +597,17 @@ rules {
         (input_vote
           (player_set)
           (expression
-            (quoted_string))
+            (quoted_string
+              (string_text)))
           (expression
             (list_literal
               (expression_list
                 (expression
-                  (quoted_string))
+                  (quoted_string
+                    (string_text)))
                 (expression
-                  (quoted_string)))))
+                  (quoted_string
+                    (string_text))))))
           (qualified_identifier
             (identifier)))))))
 
@@ -648,15 +664,19 @@ rules {
         (message
           (player_set)
           (expression
-            (quoted_string))))
+            (quoted_string
+              (string_text)))))
       (rule
         (scores
           (list_literal
             (expression_list
               (expression
-                (quoted_string))
+                (quoted_string
+                  (string_text)))
               (expression
-                (quoted_string))
+                (quoted_string
+                  (string_text)))
               (expression
-                (quoted_string)))))))))
+                (quoted_string
+                  (string_text))))))))))
 

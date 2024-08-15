@@ -6,10 +6,6 @@ module.exports = grammar({
     $.comment,
   ],
 
-  inline: $ => [
-    $.body_element,
-  ],
-
   rules: {
 
     // Start symbol.
@@ -232,7 +228,7 @@ module.exports = grammar({
       'time',
       'for',
       field('duration', $.expression), // Number
-      optional(field('mode', choice('at most', 'exactly'))),
+      field('mode', optional(choice('at most', 'exactly'))),
       optional(seq('in', field('flag', $.qualified_identifier))),
       field('body', $.body)
     ),
@@ -397,7 +393,23 @@ module.exports = grammar({
 
     boolean: $ => choice('true', 'false'),
 
-    quoted_string: $ => /"[^"]*"/,
+    quoted_string: $ => seq(
+      '"',
+      field('contents', repeat(choice($.string_interpolation, $.string_text))),
+      '"'
+    ),
+
+    // It is possible to use external lexer functions to drive detailed
+    // matching of string content with escapes as rich as in Python. The
+    // complexity of that is not worth it for our use cases, so we'll support
+    // a simpler subset of string functionality instead.
+    string_text: $ => /([^"{}]|\{\{|\}\})+/,
+
+    string_interpolation: $ => seq(
+      '{',
+      field('expression', $.expression),
+      '}'
+    ),
 
     number_range: $ => seq(
       '(',
